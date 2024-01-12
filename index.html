@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            cursor: pointer;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .info-bubble {
+            display: none;
+            position: absolute;
+            background-color: #45a049;
+            color: #fff;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            z-index: 1;
+            max-width: 200px; 
+            text-align: center;
+        }
+
+        .info-bubble::after {
+            content: "";
+            position: absolute;
+            bottom: 100%;
+            left : 50%;
+            border-width: 8px;
+            border-style: solid;
+            border-color: transparent transparent #45a049 transparent;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculatrice</h1>
+    <a href="#" onclick="toggleCalculatorVisibility(true)">Faire apparaître la calculatrice</a>
+    <a href="#" onclick="toggleCalculatorVisibility(false)">Faire disparaître la calculatrice</a>
+    <form id="calculator">
+        <label for="num1">Nombre 1 :</label>
+        <input type="number" id="num1" name="num1">
+        <div id="num1-info" class="info-bubble" onmouseover="handleInfoBubble(true, 'num1-info')" onmouseout="handleInfoBubble(false, 'num1-info')">Saisir un nombre</div>
+
+
+        <label for="operation">Choisissez une opération :</label>
+        <select id="operation" name="operation">
+            <option value="addition">+</option>
+            <option value="soustraction">-</option>
+            <option value="multiplication">*</option>
+            <option value="division">/</option>
+        </select>
+        <div id="operation-info" class="info-bubble">Choisir une opération</div>
+
+
+        <label for="num2">Nombre 2 :</label>
+        <input type="number" id="num2" name="num2">
+        <div id="num2-info" class="info-bubble" onmouseover="handleInfoBubble(true, 'num2-info')" onmouseout="handleInfoBubble(false, 'num2-info')">Saisir un nombre</div>
+
+        <input type="submit">
+    </form>
+    <script src="script.js"></script>  
+</body>
+</html>
